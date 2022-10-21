@@ -13,7 +13,7 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
-
+  config.hosts << "3000-tandahq-hotwirenewsapp-m9q4jiisvhp.ws-us72.gitpod.io"
   # Enable server timing
   config.server_timing = true
 
