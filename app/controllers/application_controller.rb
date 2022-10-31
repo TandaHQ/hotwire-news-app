@@ -1,3 +1,4 @@
-class ApplicationController < ActionController::Base
+require "pry"
 
+class ApplicationController < ActionController::Base
 end
