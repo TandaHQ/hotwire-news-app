@@ -1,5 +1,7 @@
 %div
   %h1.font-bold.text-4xl
     Home#index
-  %p
-    Find me in app/views/home/index.html.erb
+  - @articles.each do |article|
+    %div
+      %h3= article.title
+      %p= article.description
