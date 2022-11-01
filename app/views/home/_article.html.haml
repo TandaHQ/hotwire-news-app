@@ -1,0 +1,15 @@
+.div{style: "border: black 1px solid; margin-bottom: 50px; padding: 20px"}
+  %h3
+    = article.title
+  %p
+    = article.description
+  %div
+    = turbo_frame_tag "#{id}" do
+      %div{style: "border: blue .5px solid; margin-top: 50px; padding: 20px"}
+        %div{id:"comment-list-#{id}"}
+        = form_with url: comments_create_path do |f|
+          = f.text_area :text
+          = f.hidden_field :index, value: id
+          = f.submit
+
+

@@ -1,7 +1,5 @@
 %div
-  %h1.font-bold.text-4xl
+  %font-bold.text-4xl.text-blue-500
     Home#index
-  - @articles.each do |article|
-    %div
-      %h3= article.title
-      %p= article.description
+  - @articles.each_with_index do |article, i|
+    = render "article", article: article, id: i
