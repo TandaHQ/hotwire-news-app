@@ -1,5 +1,9 @@
 %div
   %font-bold.text-4xl.text-blue-500
     Home#index
-  - @articles.each_with_index do |article, i|
-    = render "article", article: article, id: i
+  = turbo_frame_tag "home_#{@page}" do
+    - @articles.each_with_index do |article, i|
+      = render "article", article: article, id: i
+    - if @next_page
+      = "loading..."
+      = turbo_frame_tag "home_#{@next_page}", loading: :lazy, src: home_path(page: @next_page)

@@ -1,10 +1,13 @@
 require 'news-api'
 
 class HomeController < ApplicationController
+  PER_PAGE = 10.freeze
+
   def index
-    # This is patricks personal one we should get a wf.com one pls
-    # Sorry pat I like this one
-    n = News.new("15b2cddbc74645cdbfcc5e56e15319fd")
-    @articles = n.get_top_headlines(sources: "bbc-news")
+    @page = params[:page] ? params[:page].to_i : 1
+    @offset = (@page - 1) * PER_PAGE
+    n = News.new("aceb7c8dcfcd407088c69ce236945039")
+    @articles = n.get_everything(sources: "bbc-news")[@offset..@offset + (PER_PAGE - 1)]
+    @next_page = @page + 1 if @articles.size == PER_PAGE
   end
 end
