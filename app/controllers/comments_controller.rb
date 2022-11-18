@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
   def create
-    binding.pry
     @comment = Comment.new(
-      text: params[:text],
-      index: params[:index]
+      params[:index],
+      params[:text],
+      params[:url], # to associate comments to incoming api articles w/o article persistence
     )
   end
 end
