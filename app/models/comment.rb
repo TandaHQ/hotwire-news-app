@@ -1,7 +1,9 @@
 class Comment
-  def initialize(text, index)
-    @text = text
-    @index = index
-  end
+  attr_accessor :id, :text, :url
 
+  def initialize(id, text, url)
+    @id = id
+    @text = text
+    @url = url
+  end
 end
